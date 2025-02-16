@@ -30,12 +30,7 @@ const userSchema = mongoose.Schema(
       default: false,
       type: Boolean,
     },
-    age: {
-      type: Number,
-      required:true,
-      min: [18, "18 must be minimum length"],
-      max: [100, "100 must be minimum length"],
-    },
+    
   },
   { Timestamp: true }
 );
