@@ -19,15 +19,9 @@ export const main = () => {
   ];
 
   app.use(cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) { // Allow requests without origin (like Postman) or from allowed origins
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods (adjust as needed)
-    credentials: true  // If you need cookies/authentication (often needed)
+    origin: "*", // Allow all origins
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
+    credentials: true // If you need cookies/authentication
   }));
 
 
