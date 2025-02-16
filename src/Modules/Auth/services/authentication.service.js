@@ -4,7 +4,7 @@ import { emitter } from "../../../Services/send-email.service.js";
 import  jwt  from 'jsonwebtoken';
 export const signUpService = async (req, res) => {
   try {
-    const { userName, password, confirmPassword, phone, age, email } = req.body;
+    const { userName, password, confirmPassword, phone, email } = req.body;
     const isEmailExists = await User.findOne({ email });
     if (password !== confirmPassword)
       return res
@@ -42,7 +42,6 @@ export const signUpService = async (req, res) => {
       userName: userName,
       password: hashedPassword,
       phone: phone,
-      age: age,
       email: email,
     });
     if (!user)
