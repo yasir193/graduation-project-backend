@@ -8,15 +8,12 @@ import speedController from "../Modules/Speed/speed.controller.js";
 import statusController from "../Modules/Status/status.controller.js";
 import { Status } from "../DB/models/status.model.js";
 import cors from 'cors'; // Import the cors package
+import gpsController from "../Modules/GPS/GPS.controller.js";
 
 export const main = () => {
   const app = express();
 
-  // CORS Configuration (Important!)
-  const allowedOrigins = [
-    "https://graduation-project-orpin.vercel.app", // Your frontend URL
-    "http://localhost:3000" // For local development (optional)
-  ];
+  
 
   app.use(cors({
     origin: "*", // Allow all origins
@@ -45,6 +42,7 @@ export const main = () => {
   app.use("/user", userController);
   app.use("/speed", speedController);
   app.use("/status", statusController);
+  app.use("/gps", gpsController);
 
   app.get("/", async (req, res) => {
     res.json({ message: "Server is running!", data: await Status.findOne() });
