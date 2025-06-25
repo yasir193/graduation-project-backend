@@ -4,8 +4,8 @@ import { getSpeed, setSpeed } from './Services/speed.service.js';
 
 const speedController = Router();
 
-speedController.post('/set-speed' , setSpeed)
-speedController.get('/get-speed' , getSpeed)
+speedController.post('/speed' , setSpeed)
+speedController.get('/speed' , getSpeed)
 
 
 export default speedController;

@@ -16,9 +16,9 @@ export const main = () => {
   
 
   app.use(cors({
-    origin: "*", // Allow all origins
-    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed HTTP methods
-    credentials: true // If you need cookies/authentication
+    origin: "*", 
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+    credentials: true 
   }));
 
 
@@ -40,9 +40,9 @@ export const main = () => {
 
   app.use("/auth", authController);
   app.use("/user", userController);
-  app.use("/speed", speedController);
-  app.use("/status", statusController);
-  app.use("/gps", gpsController);
+  app.use("/", speedController);
+  app.use("/", statusController);
+  app.use("/", gpsController);
 
   app.get("/", async (req, res) => {
     res.json({ message: "Server is running!", data: await Status.findOne() });
